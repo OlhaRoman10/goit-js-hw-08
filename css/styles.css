@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+    height: auto;
+    padding: 24px 156px;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 24px;
+    user-select: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.gallery-item {
+    width: calc((100% - 2 * 24px) / 3);
+}
+.gallery-image {
+    width: 100%;
+    height: auto;
+}
