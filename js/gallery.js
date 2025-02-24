@@ -65,7 +65,7 @@ const images = [
 ];
 
 const gallery = document.querySelector('.gallery');
-
+// Функція створення розмітки
 const galleryMarkup = images.map(({ preview, original, description }) => 
      `<li class="gallery-item">
     <a class="gallery-link" href="${original}">
@@ -78,12 +78,24 @@ const galleryMarkup = images.map(({ preview, original, description }) =>
     </a>
   </li>`).join("");
 
+// Функція рендерінгу розмітки
 gallery.insertAdjacentHTML('beforeend', galleryMarkup);
 
+// Обробник подій на клік по галереї
 gallery.addEventListener("click", (event) => {
+    // скидання налаштувань по замовчуванню
     event.preventDefault();
+    // первірка кліку по зображенню
     if (event.target.nodeName !== 'IMG')
         return;
-}
-    
-)
+
+    // Виклик модального вікна
+    // Отримую посилання на img у модалці
+    const modalImage = event.target.dataset.source;
+    console.log("Large image link:", modalImage);
+
+// Відкриття модалки через бібліотеку
+    const instance = basicLightbox.create(`<img src="${modalImage}" width="1112" height="640">`);
+    instance.show();
+});
+   
